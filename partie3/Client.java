@@ -69,7 +69,7 @@ public class Client {
     public static void main(String[] args) {
         try {
             //Registry registry = LocateRegistry.getRegistry(host);
-            stub = (IBanque)Naming.lookup("rmi://localhost:1900" + "/Banque");
+            stub = (IBanque)Naming.lookup("rmi://197.0.11.104:1900" + "/Banque");
             //stub = (IBanque) registry.lookup("Banque");
             boolean t = true;
             while (t) {
