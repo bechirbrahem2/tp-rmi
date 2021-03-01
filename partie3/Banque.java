@@ -58,6 +58,10 @@ public class Banque extends UnicastRemoteObject implements IBanque {
             helperWrite("mdp faux");
             return erreur;
         }
+        if (montant <= 0) {
+            helperWrite("montant negatif");
+            return "montant negatif";
+        }
         if (liste.get(id).solde <= montant) {
             helperWrite("solde insufisant");
             return "solde insufisant";
@@ -101,6 +105,11 @@ public class Banque extends UnicastRemoteObject implements IBanque {
             helperWrite("mdp incorrect");
             return erreur;
         }
+        if (montant <= 0) {
+            helperWrite("montant negatif");
+            return "montant negatif";
+        }
+
         if (liste.get(id).solde <= montant) {
             helperWrite("solde insufisant");
             return "solde insufisant";
@@ -155,7 +164,7 @@ public class Banque extends UnicastRemoteObject implements IBanque {
             String s = "";
 
             while (sc.hasNextLine())
-                s += sc.nextLine() +"\n";
+                s += sc.nextLine() + "\n";
             sc.close();
             return s;
         } catch (Exception e) {
